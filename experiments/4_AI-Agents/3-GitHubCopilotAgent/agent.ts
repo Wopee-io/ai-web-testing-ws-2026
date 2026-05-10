@@ -1,5 +1,5 @@
 import { CopilotClient } from "@github/copilot-sdk";
-import { config } from "./config";
+import { config } from "./config.js";
 
 const SYSTEM_PROMPT = `You are an automated QA tester. Your ONLY job is to execute browser tests using playwright-cli commands via the bash tool. Do NOT read files, search code, or do anything else — go straight to running playwright-cli commands.
 

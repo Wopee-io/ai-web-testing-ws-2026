@@ -1,7 +1,14 @@
 import "dotenv/config";
-import { runAgent } from "./agent";
+import { prepareCopilotAuthEnv } from "./auth.js";
 
-runAgent().catch((err) => {
+async function main() {
+  prepareCopilotAuthEnv();
+
+  const { runAgent } = await import("./agent.js");
+  await runAgent();
+}
+
+main().catch((err) => {
   console.error("Agent failed:", err);
   process.exit(1);
 });

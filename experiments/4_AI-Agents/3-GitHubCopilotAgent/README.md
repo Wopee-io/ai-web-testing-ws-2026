@@ -10,6 +10,7 @@ The agent reads test instructions from a config file and executes them autonomou
 
 ```text
 config.ts  →  test instructions (what to test)
+auth.ts    →  auth token resolution + env preparation
 agent.ts   →  Copilot SDK session + system prompt (~40 lines)
 run.ts     →  entry point
 ```
@@ -40,9 +41,21 @@ Same Playwright engine, same team — different interface for the LLM:
 
 ## Authentication
 
-The Copilot SDK needs access to GitHub Copilot. You have two options:
+This experiment supports **all authentication inputs implemented in `auth.ts`**.
 
-### Option A: GitHub CLI (recommended)
+### Resolution order (exact)
+
+Token is resolved in this order:
+
+1. `gh auth token -h github.com`
+2. `GH_TOKEN`
+3. `GITHUB_TOKEN`
+4. `COPILOT_GITHUB_TOKEN`
+5. `GITHUB_PAT`
+
+If none are available, the run fails with a clear missing-token error.
+
+### Option A: GitHub CLI login (recommended)
 
 If you have [GitHub CLI](https://cli.github.com/) installed and a Copilot subscription:
 
@@ -50,29 +63,67 @@ If you have [GitHub CLI](https://cli.github.com/) installed and a Copilot subscr
 gh auth login
 ```
 
-The SDK will automatically pick up your GitHub CLI credentials.
-
-### Option B: Environment variable
-
-This experiment loads the repository root `.env` file automatically.
-
-Create a `.env` file with a GitHub token that has Copilot access:
+After login, you can just run:
 
 ```bash
-COPILOT_GITHUB_TOKEN=ghp_your_token_here
+npm run e4.3
 ```
 
-You can also set it directly in your shell:
+No manual export is needed because this project reads from `gh auth token` first.
+
+### Option B: `.env` file (repository root)
+
+`run.ts` loads `.env` automatically via `dotenv`.
+
+Example `.env`:
 
 ```bash
-export COPILOT_GITHUB_TOKEN=ghp_your_token_here
+GH_TOKEN=ghp_your_token_here
+# or GITHUB_TOKEN=ghp_your_token_here
+# or COPILOT_GITHUB_TOKEN=ghp_your_token_here
+# or GITHUB_PAT=ghp_your_token_here
 ```
 
-The SDK checks for tokens in this order: `COPILOT_GITHUB_TOKEN` → `GH_TOKEN` → `GITHUB_TOKEN` → GitHub CLI credentials.
+> If `gh auth token` is available, it takes precedence over `.env` values.
 
-### No Copilot subscription?
+### Option C: Shell environment variable (local session)
 
-You can use your own API keys (BYOK) from OpenAI, Azure, or Anthropic — no Copilot subscription required. See [Copilot SDK BYOK docs](https://github.com/github/copilot-sdk/blob/main/docs/auth/index.md) for setup.
+#### macOS/Linux (bash/zsh)
+
+```bash
+export GH_TOKEN=ghp_your_token_here
+npm run e4.3
+```
+
+#### Windows PowerShell
+
+```powershell
+$env:GH_TOKEN="ghp_your_token_here"
+npm run e4.3
+```
+
+#### Windows CMD
+
+```bat
+set GH_TOKEN=ghp_your_token_here
+npm run e4.3
+```
+
+### Option D: CI/CD secret environment variable
+
+In CI, set one of these secret env vars (recommended: `GH_TOKEN` or `GITHUB_TOKEN`) and run:
+
+```bash
+npm run e4.3
+```
+
+---
+
+### About BYOK / custom providers
+
+Copilot SDK supports BYOK/custom providers, but **this experiment currently enforces GitHub token-based auth in `auth.ts`**.
+
+If you want, we can add a BYOK mode switch so it can run without GitHub token when provider env vars are set.
 
 ## Setup
 
