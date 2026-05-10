@@ -12,9 +12,9 @@ A checklist-style reference for testers & test automation engineers. Ordered by 
 ## 2. Models & Premium Requests
 
 - [ ] Model picker in chat: Claude Sonnet/Opus, GPT-5, Gemini, o-series, etc.
-- [ ] **Premium requests** — Non-base models consume premium quota (multiplier per model, e.g. Claude Opus ~10×, Sonnet ~1×, GPT-4.1 = 0×).
+- [ ] **Premium requests** — Non-base models consume premium quota (multiplier per model, e.g. Claude Opus ~3×, Sonnet ~1×, GPT-4.1 = 0×). Note: the quotas are keep changing - see latest multipliers in the [docs](https://docs.github.com/en/copilot/concepts/billing/copilot-requests) or your VS Code settings.
 - [ ] Monthly allowance depends on plan (Free / Pro / Pro+ / Business / Enterprise). Check usage at github.com/settings/copilot.
-- [ ] Rule of thumb for tests: **Sonnet** for day-to-day, **Opus / GPT-5** for hard debugging or large refactors, base model for trivial edits.
+- [ ] Rule of thumb for tests: **Sonnet** for day-to-day, **Opus / GPT-5.5** for hard debugging or large refactors, base model for trivial edits.
 
 ## 3. MCP (Model Context Protocol) Setup
 
@@ -24,12 +24,15 @@ A checklist-style reference for testers & test automation engineers. Ordered by 
   ```json
   {
     "servers": {
-      "playwright": { "command": "npx", "args": ["-y", "@playwright/mcp@latest"] }
+      "playwright": {
+        "command": "npx",
+        "args": ["-y", "@playwright/mcp@latest"]
+      }
     }
   }
   ```
 
-- [ ] Useful MCP servers for testers: **Playwright**, **Wopee.io**, **GitHub**, **Filesystem**, **Fetch**.
+- [ ] Useful MCP servers for testers: **Playwright**, **Wopee.io**, **GitHub**, **Filesystem**, **Fetch**. See also [MCP GitHub](https://github.com/mcp) listing.
 - [ ] Start/stop/inspect from the Chat view → **MCP Servers** panel.
 - [ ] Secrets → use VS Code input variables (`${input:...}`), never hardcode.
 
@@ -49,13 +52,11 @@ Commit these per repo so the whole team gets the same experience:
 
 ## 5. Extensions (must-have for testers)
 
-- [ ] **GitHub Copilot** + **GitHub Copilot Chat**
-- [ ] **Playwright Test for VSCode**
-- [ ] **Playwright MCP** (via `mcp.json`)
+- [ ] **GitHub Copilot Chat**
+- [ ] [**Playwright Test for VSCode**](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright)
+- [ ] [**Playwright MCP**](https://playwright.dev/mcp/introduction) (via `mcp.json`)
+- [ ] [**Playwright CLI**](https://playwright.dev/agent-cli/introduction)
 - [ ] **ESLint**, **Prettier**
-- [ ] **GitLens** (diffs & blame for flaky tests)
-- [ ] **Error Lens** (inline errors)
-- [ ] **REST Client** or **Thunder Client** (API testing)
 
 ## 6. Customization Checklist (cover everything from [VS Code Copilot Customization](https://code.visualstudio.com/docs/copilot/customization/overview))
 
