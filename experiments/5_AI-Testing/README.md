@@ -1,13 +1,4 @@
-# AI-Augmented Testing
-
-> This section is covered in slides — no hands-on experiments.
-
-## Topics Covered
-
-- **AI testing landscape** — coding agents, CI/CD integration, IDE copilots, browser automation, test management & reporting, agentic/autonomous testing
-- **QA maturity layers** — from manual & exploratory → scripted automation → orchestration & quality gates → AI-augmented → agentic/autonomous
-- **Quick wins** — where to start integrating AI into existing testing processes: test scenario generation, test planning, review & maintenance, test reports
-- **AI browsers** — a new category of tools for hands-free exploratory testing
+# Experiment 5: AI Browser Testing
 
 ## Useful Tools
 
@@ -19,5 +10,5 @@
 ## Try It Yourself
 
 1. Install one of the AI browsers listed above (Comet or Atlas recommended)
-2. Use it to explore https://foodora.lovable.app — try to find a bug using the AI assistant
+2. Use it to explore [Foodora clone app](https://foodora.lovable.app) — try to find a bug using the AI assistant
 3. Try the same task with a second AI tool (e.g., Claude for Chrome) — compare the findings
