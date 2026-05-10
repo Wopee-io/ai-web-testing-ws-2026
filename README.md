@@ -64,17 +64,18 @@ In-house training (minimum 8 participants) can be tailored to specific team envi
 Please follow these steps before the workshop:
 
 1. **Connect with me via LinkedIn:** [linkedin.com/in/marcel-veselka](https://www.linkedin.com/in/marcel-veselka) — share your expectations and questions, and I will adjust the workshop based on that.
-2. **Submit this form:** [forms.gle/X8SD4mka4wgCPc6t9](https://forms.gle/X8SD4mka4wgCPc6t9) — we'll make sure we are ready for you.
+2. **Submit this form:** [forms.gle/X8SD4mka4wgCPc6t9](https://forms.gle/A9romEyVQVXpJLFS7) — we'll make sure we are ready for you.
 3. **Install Node.js:** [nodejs.org/en/download](https://nodejs.org/en/download/)
-4. **Set up VS Code and Playwright:** [playwright.dev/docs/getting-started-vscode](https://playwright.dev/docs/getting-started-vscode)
-5. **Clone this repo:**
+4. **Install GitHub CLI:** [cli.github.com](https://cli.github.com/)
+5. **Set up VS Code and Playwright:** [playwright.dev/docs/getting-started-vscode](https://playwright.dev/docs/getting-started-vscode)
+6. **Clone this repo:**
    - Windows: `Ctrl+Shift+P` → Git: Clone → paste this repository URL
    - Mac: `Cmd+Shift+P` → Git: Clone → paste this repository URL
-6. **Install dependencies:** Open the terminal in VS Code and run `npm install` to install all necessary packages.
-7. Create accounts for [GitHub](https://github.com) and [Wopee.io](https://wopee.io) using the same email address.
-8. Create a new project in [Wopee.io](https://cmd.wopee.io) and create a new API key (Project > Project Settings > API Keys).
-9. Copy .env.example to .env and fill in the values and set `WOPEE_API_KEY` and `WOPEE_PROJECT_UUID` with the values from your Wopee.io account.
-10. **Run tests:** Run `npm test` to verify everything is set up correctly.
-11. **Let me know you're ready** via LinkedIn chat, or ask any questions there.
+7. **Install dependencies:** Open the terminal in VS Code and run `npm install` to install all necessary packages.
+8. Create accounts for [GitHub](https://github.com) and [Wopee.io](https://wopee.io) using the same email address.
+9. Create a new project in [Wopee.io](https://cmd.wopee.io) and create a new API key (Project > Project Settings > API Keys).
+10. Copy .env.example to .env and fill in the values and set `WOPEE_API_KEY` and `WOPEE_PROJECT_UUID` with the values from your Wopee.io account.
+11. **Run tests:** Run `npm test` to verify everything is set up correctly.
+12. **Let me know you're ready** via LinkedIn chat, or ask any questions there.
 
 > **Note:** Admin rights make it easier to install and access tools & resources (like AI APIs) we will use during the workshop.
