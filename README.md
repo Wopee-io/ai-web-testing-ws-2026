@@ -68,7 +68,7 @@ Please follow these steps before the workshop:
 3. **Install Node.js:** [nodejs.org/en/download](https://nodejs.org/en/download/)
 4. **Install GitHub CLI:** [cli.github.com](https://cli.github.com/)
 5. **Set up VS Code and Playwright:** [playwright.dev/docs/getting-started-vscode](https://playwright.dev/docs/getting-started-vscode)
-6. **Clone this repo:**
+6. **Clone this repo (in VS Code):**
    - Windows: `Ctrl+Shift+P` → Git: Clone → paste this repository URL
    - Mac: `Cmd+Shift+P` → Git: Clone → paste this repository URL
 7. **Install dependencies:** Open the terminal in VS Code and run `npm install` to install all necessary packages.
